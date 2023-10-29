@@ -4,11 +4,34 @@ import requests
 from io import BytesIO
 import base64
 
+
 def main_method():
     try:
-        st.title("Stable Diffusion Demo")
 
+        st.sidebar.markdown(" Sample prompts")
+        st.sidebar.markdown(" ")
+        st.sidebar.markdown("Diamond ring")
+        st.sidebar.markdown(" Yellow Diamond ring")
+        st.sidebar.markdown(" Small Diamond ring")
+        st.sidebar.markdown('''
+
+                <style>
+
+                [data-testid="stMarkdownContainer"] ul{
+
+                    padding-left:40px;
+
+                }
+
+                </style>
+
+                ''', unsafe_allow_html=True)
+        apptitle="Stable Diffusion model for jewellery design"
+        # st.set_page_config(page_title=apptitle, page_icon="z:eyeglasses:")
+        st.title("Stable Diffusion Demo")
         url = st.text_input("Enter the url")
+        if len(url)>0:
+            url=url+"/run"
         prompt = st.text_input("Enter textual prompt")
 
         if st.button("Generate Image"):
